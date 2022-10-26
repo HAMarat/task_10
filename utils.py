@@ -16,13 +16,12 @@ def get_all(candidates) -> list[dict]:
 
 
 def get_by_pk(candidates, pk):
-    candidate_data_pk = []
     for candidates_dict in candidates:
-        candidate_data_pk.append(candidates_dict[str(pk)])
-    return candidate_data_pk
+        if candidates_dict["pk"] == int(pk):
+            return candidates_dict
 
 
-def get_by_skill(skill_name):
+def get_by_skill(candidates, skill_name):
     candidate_data_skill_name = []
     for candidates_dict in candidates:
         candidate_data_skill_name.append(candidates_dict[skill_name])
