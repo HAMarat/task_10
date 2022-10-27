@@ -22,7 +22,8 @@ def get_by_pk(candidates, pk):
 
 
 def get_by_skill(candidates, skill_name):
-    candidate_data_skill_name = []
-    for candidates_dict in candidates:
-        candidate_data_skill_name.append(candidates_dict[skill_name])
-    return candidate_data_skill_name
+    candidates_by_skill = []
+    for candidate_dict in candidates:
+        if skill_name.lower() in candidate_dict['skills'].lower():
+            candidates_by_skill.append(candidate_dict)
+            return candidates_by_skill
