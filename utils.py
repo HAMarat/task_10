@@ -16,9 +16,11 @@ def get_all(candidates) -> list[dict]:
 
 
 def get_by_pk(candidates, pk):
-    for candidates_dict in candidates:
-        if candidates_dict["pk"] == int(pk):
-            return candidates_dict
+    if pk.isdigit():
+        for candidates_dict in candidates:
+            if candidates_dict["pk"] == int(pk):
+                return candidates_dict
+    return None
 
 
 def get_by_skill(candidates, skill_name):
@@ -27,3 +29,4 @@ def get_by_skill(candidates, skill_name):
         if skill_name.lower() in candidate_dict['skills'].lower():
             candidates_by_skill.append(candidate_dict)
             return candidates_by_skill
+    return None
